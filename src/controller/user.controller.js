@@ -38,9 +38,9 @@ const createUserAccount = asyncHandler(async (req, res, next) => {
 
 const getUserProfile = asyncHandler(async (req, res, next) => {
 
-    const userId = req.body // currently 
+    const username = req.params // currently 
 
-    const user = await User.findById(userId).select('uploadedMedia -_id');
+    const user = await User.findOne({username}).select('uploadedMedia -_id');
 
     if (!user) {
         throw new apiError(404, "User not found");

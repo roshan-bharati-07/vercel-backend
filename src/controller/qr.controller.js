@@ -11,7 +11,7 @@ const generateQR = asyncHandler(async(req,res,next) => {
   }
 
   // no need to check in DB whether user exist or not 
-  const endpoint = `http://localhost:4000/user/media/${encodeURIComponent(username)}`
+  const endpoint = `https://vercel-backend-nu-rust.vercel.app/user/media/${encodeURIComponent(username)}`
 
   const qrDataUrl = await QRCode.toDataURL(endpoint)
    
