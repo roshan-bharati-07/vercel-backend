@@ -12,6 +12,9 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded())
 app.use('/user', userRoutes)
+app.get('/', (req,res)=> {
+  res.send("Is API running in the vercel environment?")
+})
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
