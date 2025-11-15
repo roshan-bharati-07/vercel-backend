@@ -62,7 +62,7 @@ const userLogin = asyncHandler(async (req, res, next) => {
         throw new apiError(401, "Invalid username or password");
     }
 
-    const isPasswordValid = await user.comparePassword(user.password);
+    const isPasswordValid = await user.comparePassword(password);
 
     if (!isPasswordValid) {
         throw new apiError(401, "Invalid username or password");
@@ -70,7 +70,7 @@ const userLogin = asyncHandler(async (req, res, next) => {
     res.status(200).json(new apiResponse(200, user, "User logged in successfully", true));
 })
 
-const uploadMedia = asyncHandler(async (req, res) => {
+const uploadMedia = asyncHandler(async (req, res,next) => {
     const files = req.files
     const { username } = req.params
 
