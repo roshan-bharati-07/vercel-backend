@@ -38,7 +38,7 @@ const createUserAccount = asyncHandler(async (req, res, next) => {
 
 const getUserProfile = asyncHandler(async (req, res, next) => {
 
-    const username = req.params // currently 
+    const {username} = req.params // currently 
 
     const user = await User.findOne({username}).select('uploadedMedia -_id');
 
