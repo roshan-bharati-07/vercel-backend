@@ -4,7 +4,7 @@ import apiError from '../utils/apiError.js';
 import apiResponse from '../utils/apiResponse.js';
 
 const generateQR = asyncHandler(async(req,res,next) => {
-  const {username} = req.body;
+  const {username} = req.params;
 
   if(!username){
    throw new apiError(400, "Username is required")
