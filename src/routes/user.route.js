@@ -5,7 +5,6 @@ import {
     createUserAccount,
     getUserProfile,
     userLogin,
-    uploadMedia,
     getAllMedia
 } from "../controller/user.controller.js";
 
@@ -16,7 +15,6 @@ import {
 router.post("/register", createUserAccount)
 router.post("/login", userLogin)
 router.get("/profile/:username", getUserProfile)
-router.post("/upload/:username", upload.array('files', 10), uploadMedia)
 router.get("/media/:username", getAllMedia)
 router.post("/generate/QR/:username", generateQR)
 
